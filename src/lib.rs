@@ -35,7 +35,7 @@ pub async fn main(req: Request, env: Env, _ctx: worker::Context) -> Result<Respo
 }
 
 async fn app(request: HttpRequest<String>) -> AxumResponse {
-    let router = AxumRouter::new()
+    let mut router = AxumRouter::new()
         .route("/", get(|| async { "Hi!" }))
         .into_service(); // no method named `into_service` found for struct `axum::Router` in the current scope
 
